@@ -1,0 +1,148 @@
+ <!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+```
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #43e97b, #38f9d7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .register-container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        width: 380px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #43e97b;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: #2ed573;
+    }
+
+    .error {
+        color: red;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .success {
+        color: green;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .link {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .link a {
+        text-decoration: none;
+        color: #43e97b;
+    }
+</style>
+```
+
+</head>
+<body>
+
+<div class="register-container">
+
+```
+<h2>User Registration</h2>
+
+<form th:action="@{/register}" th:object="${user}" method="post">
+
+    <!-- Username / First Name -->
+    <input type="text"
+           th:field="*{username}"
+           placeholder="Enter Username"
+           pattern="[A-Za-z]{3,}"
+           title="Username must contain only letters and at least 3 characters"
+           required />
+
+    <!-- Password -->
+    <input type="password"
+           th:field="*{password}"
+           placeholder="Enter Password"
+           minlength="8"
+           title="Password must be at least 8 characters"
+           required />
+
+    <!-- Email -->
+    <input type="email"
+           th:field="*{email}"
+           placeholder="Enter Email"
+           pattern="[a-zA-Z0-9._%+-]+@gmail\.com"
+           title="Only Gmail addresses allowed"
+           required />
+
+    <!-- Phone -->
+    <input type="tel"
+           th:field="*{phone}"
+           placeholder="Enter Phone Number"
+           pattern="[0-9]{10}"
+           maxlength="10"
+           title="Phone number must be exactly 10 digits"
+           required />
+
+    <button type="submit">Register</button>
+
+</form>
+
+<div class="error"
+     th:if="${error}"
+     th:text="${error}">
+</div>
+
+<div class="success"
+     th:if="${message}"
+     th:text="${message}">
+</div>
+
+<div class="link">
+    Already have an account?
+    <a th:href="@{/login}">Login here</a>
+</div>
+```
+
+</div>
+
+</body>
+</html>
+

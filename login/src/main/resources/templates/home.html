@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff6ec4, #7873f5, #42e695);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        /* Scrollbar Design */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#ff6ec4, #42e695);
+            border-radius: 10px;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: white;
+            color: #333;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.4s;
+        }
+
+        .btn:hover {
+            background: #000;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            width: 280px;
+            border-radius: 20px;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            background: rgba(255,255,255,0.25);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    🌟 Welcome <span th:text="${name}">User</span> 🌟
+</header>
+
+<div class="hero">
+    <h1>Colorful Dream World</h1>
+    <p>
+This project demonstrates a structured web application where users can securely register and log in while the server processes requests and manages data in the database. It reflects my interest in understanding how modern web systems operate—from handling user input in the browser to processing requests on the server and maintaining reliable data flow within the application. The goal of this project is to build practical, well-organized applications and continuously improve my ability to design and run complete web systems.
+</p>
+    <a href="#" class="btn">Explore More</a>
+</div>
+
+
+<div class="section">
+    <h2>More Content</h2>
+    <p>
+        
+    </p>
+</div>
+
+<footer>
+    © 2026 Jeevan Project | Designed with ❤️
+</footer>
+
+</body>
+</html>
